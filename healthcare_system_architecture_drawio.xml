@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="        <!-- Tailwind CSS -->
+        <mxCell id="tailwind-css" value="TAILWIND CSS&#xa;STYLING FRAMEWORK&#xa;&#xa;• Utility-First CSS&#xa;• Responsive Design&#xa;• Custom Theming&#xa;• Dark Mode Support&#xa;• Mobile Optimization" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06b6d4;strokeColor=#0891b2;fontColor=#ffffff;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="150" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Vite -->
+        <mxCell id="vite" value="VITE BUILD TOOL&#xa;&#xa;• Fast Development Server&#xa;• Hot Module Replacement&#xa;• TypeScript Support&#xa;• Production Bundling&#xa;• Plugin Ecosystem" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#646cff;strokeColor=#4c51bf;fontColor=#ffffff;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="280" width="150" height="100" as="geometry" />
+        </mxCell>7T00:00:00.000Z" agent="Healthcare System Architecture" etag="system_arch_v1.0" version="24.7.8" type="device">
+  <diagram name="Healthcare System Architecture" id="healthcare-system-arch">
+    <mxGraphModel dx="2074" dy="1104" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="PANCHAKARMA HEALTHCARE MANAGEMENT SYSTEM ARCHITECTURE" style="text;strokeColor=none;fillColor=#e1d5e7;html=1;fontSize=20;fontStyle=1;verticalAlign=middle;align=center;strokeWidth=3;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="127" y="40" width="1400" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- PRESENTATION LAYER -->
+        <mxCell id="presentation-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="1494" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="presentation-title" value="PRESENTATION LAYER (Frontend)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- React Technology Stack -->
+        <mxCell id="react-tech-stack" value="REACT 18.x&#xa;+ TYPESCRIPT&#xa;&#xa;• UI Library&#xa;• Type Safety&#xa;• Component-Based&#xa;• Virtual DOM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0891b2;fontColor=#ffffff;shadow=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="190" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Patient Dashboard -->
+        <mxCell id="patient-dashboard" value="PATIENT DASHBOARD&#xa;&#xa;• View Appointments&#xa;• Book New Appointments&#xa;• Medical Records&#xa;• Health Metrics&#xa;• Prescriptions&#xa;• Video Consultations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="190" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Doctor Dashboard -->
+        <mxCell id="doctor-dashboard" value="DOCTOR DASHBOARD&#xa;&#xa;• Patient Management&#xa;• Appointment Scheduling&#xa;• Medical Records&#xa;• Prescription Writing&#xa;• Video Consultations&#xa;• Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="190" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Therapist Dashboard -->
+        <mxCell id="therapist-dashboard" value="THERAPIST DASHBOARD&#xa;&#xa;• Patient Therapy Sessions&#xa;• Treatment Progress&#xa;• Session Notes&#xa;• Progress Photos&#xa;• Therapy Plans&#xa;• Reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Hospital Dashboard -->
+        <mxCell id="hospital-dashboard" value="HOSPITAL DASHBOARD&#xa;&#xa;• Operations Management&#xa;• Staff Coordination&#xa;• Resource Planning&#xa;• Billing & Payments&#xa;• Analytics & Reports&#xa;• System Administration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="190" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Authentication -->
+        <mxCell id="auth-forms" value="AUTHENTICATION&#xa;SYSTEM&#xa;&#xa;• Multi-Role Login&#xa;• Patient Registration&#xa;• Staff Registration&#xa;• Password Security&#xa;• Session Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="190" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Appointment Booking -->
+        <mxCell id="appointment-booking" value="APPOINTMENT&#xa;BOOKING SYSTEM&#xa;&#xa;• AI-Powered Booking&#xa;• Hospital Selection&#xa;• Doctor Selection&#xa;• Time Slot Management&#xa;• Payment Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="190" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Medical Records -->
+        <mxCell id="medical-records" value="MEDICAL RECORDS&#xa;MANAGEMENT&#xa;&#xa;• Patient History&#xa;• Document Upload&#xa;• AI Report Analysis&#xa;• Secure Storage&#xa;• Quick Search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="320" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Video Consultation -->
+        <mxCell id="video-consultation" value="VIDEO CONSULTATION&#xa;PLATFORM&#xa;&#xa;• Real-time Video Calls&#xa;• Chat Messaging&#xa;• Screen Sharing&#xa;• Recording Capability&#xa;• Secure Connection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="320" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Payment Gateway -->
+        <mxCell id="payment-gateway" value="PAYMENT GATEWAY&#xa;SYSTEM&#xa;&#xa;• Razorpay Integration&#xa;• UPI Payments&#xa;• Credit/Debit Cards&#xa;• Payment Verification&#xa;• Transaction History" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="190" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Health Metrics -->
+        <mxCell id="health-metrics" value="HEALTH METRICS&#xa;DASHBOARD&#xa;&#xa;• BMI Calculator&#xa;• Weight Tracking&#xa;• Blood Pressure&#xa;• Sugar Levels&#xa;• Visual Charts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="190" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- UI Components -->
+        <mxCell id="ui-components" value="shadcn/ui Components&#xa;• Button • Card • Dialog&#xa;• Input • Select • Chart&#xa;• Avatar • Badge • Calendar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="300" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Tailwind CSS -->
+        <mxCell id="tailwind-css" value="Tailwind CSS&#xa;Styling Framework" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06b6d4;strokeColor=#0891b2;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Vite -->
+        <mxCell id="vite-logo" value="Vite&#xa;Build Tool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#646cff;strokeColor=#4c51bf;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="280" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- APPLICATION LAYER -->
+        <mxCell id="application-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="460" width="1494" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="application-title" value="APPLICATION LAYER (Business Logic)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="470" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- TypeScript Logo -->
+        <mxCell id="typescript-logo" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/logos/typescript.svg;" vertex="1" parent="1">
+          <mxGeometry x="100" y="510" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Authentication Service -->
+        <mxCell id="auth-service" value="Authentication&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Patient Service -->
+        <mxCell id="patient-service" value="Patient Management&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Appointment Service -->
+        <mxCell id="appointment-service" value="Appointment&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Medical Records Service -->
+        <mxCell id="medical-service" value="MEDICAL RECORDS&#xa;SERVICE&#xa;&#xa;• Patient History Management&#xa;• Document Upload & Storage&#xa;• AI Report Analysis&#xa;• CRUD Operations&#xa;• Search & Filter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="510" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Prescription Service -->
+        <mxCell id="prescription-service" value="PRESCRIPTION&#xa;SERVICE&#xa;&#xa;• Digital Prescriptions&#xa;• Medicine Database&#xa;• Dosage Management&#xa;• Pharmacy Integration&#xa;• History Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="510" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Health Metrics Service -->
+        <mxCell id="health-service" value="HEALTH METRICS&#xa;SERVICE&#xa;&#xa;• BMI Calculations&#xa;• Vital Signs Tracking&#xa;• Chart Generation&#xa;• Trend Analysis&#xa;• Alert Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="510" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Notification Service -->
+        <mxCell id="notification-service" value="NOTIFICATION&#xa;SERVICE&#xa;&#xa;• Push Notifications&#xa;• Email Alerts&#xa;• SMS Reminders&#xa;• Emergency Alerts&#xa;• System Messages" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="510" width="130" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Payment Service -->
+        <mxCell id="payment-service" value="Payment&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Video Service -->
+        <mxCell id="video-service" value="Video Consultation&#xa;Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow Arrows -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="280" as="sourcePoint" />
+            <mxPoint x="260" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="280" as="sourcePoint" />
+            <mxPoint x="400" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- DATA LAYER -->
+        <mxCell id="data-layer-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="700" width="1494" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="data-title" value="DATA LAYER (Backend & Storage)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="710" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase Logo -->
+        <mxCell id="firebase-logo" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/logos/firebase.svg;" vertex="1" parent="1">
+          <mxGeometry x="100" y="750" width="60" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="firebase-label" value="Firebase&#xa;Backend" style="text;strokeColor=none;fillColor=none;html=1;fontSize=10;fontStyle=0;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="95" y="815" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase Authentication -->
+        <mxCell id="firebase-auth" value="Firebase&#xa;Authentication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase Realtime Database -->
+        <mxCell id="firebase-db" value="Firebase&#xa;Realtime Database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase Cloud Storage -->
+        <mxCell id="firebase-storage" value="Firebase&#xa;Cloud Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Firebase Cloud Functions -->
+        <mxCell id="firebase-functions" value="Firebase&#xa;Cloud Functions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Local Storage -->
+        <mxCell id="local-storage" value="Browser&#xa;Local Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Session Storage -->
+        <mxCell id="session-storage" value="Browser&#xa;Session Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="750" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Data Structure -->
+        <mxCell id="data-structure" value="Database Structure&#xa;• Users (Patients, Doctors, Therapists)&#xa;• Appointments&#xa;• Medical Records&#xa;• Prescriptions&#xa;• Health Metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="750" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- External Integrations -->
+        <mxCell id="external-integrations" value="External Integrations&#xa;• Razorpay Payment&#xa;• Email Service&#xa;• SMS Gateway&#xa;• Video Call API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="750" width="160" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Service Layer Arrows -->
+        <mxCell id="service-arrow1" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="580" as="sourcePoint" />
+            <mxPoint x="260" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="service-arrow2" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="580" as="sourcePoint" />
+            <mxPoint x="400" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="service-arrow3" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="540" y="580" as="sourcePoint" />
+            <mxPoint x="540" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SECURITY & AUTHENTICATION -->
+        <mxCell id="security-section-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1020" width="720" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="security-title" value="SECURITY & AUTHENTICATION" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1030" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Authentication Flow -->
+        <mxCell id="auth-flow" value="Authentication Flow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1070" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user-login" value="User Login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1130" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="firebase-auth-verify" value="Firebase Auth&#xa;Verification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="1130" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="role-dashboard" value="Role-Based&#xa;Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1130" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- RBAC -->
+        <mxCell id="rbac-title" value="Role-Based Access Control (RBAC)" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1190" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="patient-role" value="PATIENT&#xa;• View own data&#xa;• Book appointments&#xa;• View prescriptions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1220" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="doctor-role" value="DOCTOR&#xa;• View patient data&#xa;• Edit medical records&#xa;• Prescribe medication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1220" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="therapist-role" value="THERAPIST&#xa;• View assigned patients&#xa;• Update therapy progress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="1220" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hospital-role" value="HOSPITAL STAFF&#xa;• View all data&#xa;• Manage schedules&#xa;• Access billing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1220" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Security Measures -->
+        <mxCell id="security-measures" value="Security Measures&#xa;• HTTPS/TLS Encryption&#xa;• Firebase Security Rules&#xa;• JWT Token Authentication&#xa;• Input Validation&#xa;• XSS Protection&#xa;• CSRF Protection&#xa;• Session Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1070" width="180" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- TECHNOLOGY STACK -->
+        <mxCell id="tech-stack-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1020" width="734" height="280" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="tech-stack-title" value="TECHNOLOGY STACK DETAILS" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1030" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Frontend Technologies -->
+        <mxCell id="frontend-tech" value="Frontend Technologies" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1070" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="react-tech" value="React 18.x" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#61dafb;strokeColor=#0891b2;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1100" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="typescript-tech" value="TypeScript" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3178c6;strokeColor=#2563eb;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="1100" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="vite-tech" value="Vite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#646cff;strokeColor=#4c51bf;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1100" width="60" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tailwind-tech" value="Tailwind CSS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06b6d4;strokeColor=#0891b2;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="1100" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Backend Technologies -->
+        <mxCell id="backend-tech" value="Backend Technologies" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1150" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="firebase-backend" value="Firebase" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff6f00;strokeColor=#e65100;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1180" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="razorpay-tech" value="Razorpay" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3395ff;strokeColor=#2563eb;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="1180" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="emailjs-tech" value="EmailJS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#28a745;strokeColor=#20c997;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="1180" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Development Tools -->
+        <mxCell id="dev-tools" value="Development Tools" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1230" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eslint-tech" value="ESLint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4b32c3;strokeColor=#3730a3;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1260" width="60" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prettier-tech" value="Prettier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7b93e;strokeColor=#d97706;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="1260" width="60" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="git-tech" value="Git" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f05032;strokeColor=#dc2626;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1260" width="50" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="vscode-tech" value="VS Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#007acc;strokeColor=#0284c7;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1260" width="60" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Testing Framework -->
+        <mxCell id="testing-title" value="Testing Framework" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="1070" width="150" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="vitest-tech" value="Vitest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c9bd1;strokeColor=#5a8bc4;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="1100" width="60" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rtl-tech" value="React Testing&#xa;Library" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e33332;strokeColor=#dc2626;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="1100" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cypress-tech" value="Cypress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#17202c;strokeColor=#1f2937;fontColor=#ffffff;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="1100" width="60" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- DATA FLOW DIAGRAM -->
+        <mxCell id="dataflow-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1340" width="1494" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dataflow-title" value="DATA FLOW ARCHITECTURE" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1350" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow Steps -->
+        <mxCell id="user-action" value="User Action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1390" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="component-layer" value="Component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="1390" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service-layer-flow" value="Service Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1390" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="database-layer" value="Database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="1390" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="response-layer" value="Response" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1390" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui-update" value="UI Update" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="1390" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Data Flow Arrows -->
+        <mxCell id="flow-arrow1" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="1410" as="sourcePoint" />
+            <mxPoint x="260" y="1410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow-arrow2" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="1410" as="sourcePoint" />
+            <mxPoint x="400" y="1410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow-arrow3" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="1410" as="sourcePoint" />
+            <mxPoint x="540" y="1410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow-arrow4" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="1410" as="sourcePoint" />
+            <mxPoint x="680" y="1410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="flow-arrow5" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="780" y="1410" as="sourcePoint" />
+            <mxPoint x="820" y="1410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Example Flow -->
+        <mxCell id="example-flow" value="Example: Appointment Booking Flow&#xa;1. User clicks 'Book Appointment' → PatientDashboard&#xa;2. Opens AIAppointmentBooking component&#xa;3. User selects hospital → fetchHospitals() service call&#xa;4. User selects doctor → fetchDoctors(hospitalId) service call&#xa;5. User picks time slot → checkAvailability() service call&#xa;6. User confirms → bookAppointment() service call&#xa;7. Firebase stores appointment data&#xa;8. Real-time listener updates appointments list&#xa;9. Notification sent to doctor&#xa;10. UI refreshes with new appointment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;shadow=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1380" width="500" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- PERFORMANCE & SCALABILITY -->
+        <mxCell id="performance-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1580" width="1494" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="performance-title" value="PERFORMANCE & SCALABILITY ARCHITECTURE" style="text;strokeColor=none;fillColor=none;html=1;fontSize=16;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1590" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Frontend Performance -->
+        <mxCell id="frontend-perf" value="Frontend Performance&#xa;• Code Splitting&#xa;• Lazy Loading&#xa;• Image Optimization&#xa;• Bundle Size Optimization&#xa;• Memory Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1630" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Backend Performance -->
+        <mxCell id="backend-perf" value="Backend Performance&#xa;• Firebase Indexing&#xa;• Query Optimization&#xa;• Connection Pooling&#xa;• Data Pagination&#xa;• Real-time Listener Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1630" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Caching Strategies -->
+        <mxCell id="caching-strategies" value="Caching Strategies&#xa;• Browser Caching&#xa;• Service Worker&#xa;• React Query Cache&#xa;• Local Storage&#xa;• CDN Distribution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1630" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Scalability -->
+        <mxCell id="scalability" value="Scalability Features&#xa;• Firebase Auto-scaling&#xa;• Cloud Function Scaling&#xa;• Database Sharding&#xa;• Load Balancing&#xa;• Multiple Deploy Regions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="1630" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Monitoring -->
+        <mxCell id="monitoring" value="Monitoring & Analytics&#xa;• Performance Monitoring&#xa;• Error Tracking&#xa;• User Analytics&#xa;• Crash Reporting&#xa;• Resource Monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1630" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Deployment -->
+        <mxCell id="deployment-arch" value="Deployment Architecture&#xa;• Static Site Hosting&#xa;• CDN Distribution&#xa;• SSL/TLS Encryption&#xa;• Environment Variables&#xa;• CI/CD Pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="1630" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Footer -->
+        <mxCell id="footer" value="Healthcare System Architecture - Version 1.0 - September 2025&#xa;Built with React, TypeScript, Firebase, and Modern Web Technologies" style="text;strokeColor=none;fillColor=#f5f5f5;html=1;fontSize=12;fontStyle=2;verticalAlign=middle;align=center;strokeWidth=1;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="127" y="1820" width="1400" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

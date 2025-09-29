@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ayurveda-primary: #2e7d32;
+            --ayurveda-secondary: #81c784;
+            --ayurveda-accent: #c8e6c9;
+            --allopathic-primary: #303f9f;
+            --allopathic-secondary: #7986cb;
+            --allopathic-accent: #c5cae9;
+            --neutral-bg: #f8f9fa;
+            --neutral-text: #333;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-text);
+            background-color: var(--neutral-bg);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-normal);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--ayurveda-primary), var(--allopathic-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--neutral-text);
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, var(--ayurveda-primary), var(--allopathic-primary));
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.15;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background-color: var(--ayurveda-secondary);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background-color: var(--allopathic-secondary);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background-color: var(--ayurveda-accent);
+            top: 20%;
+            right: 15%;
+            animation-delay: -2s;
+        }
+
+        .shape-4 {
+            width: 250px;
+            height: 250px;
+            background-color: var(--allopathic-accent);
+            bottom: 15%;
+            left: 10%;
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--ayurveda-primary), var(--allopathic-primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: #555;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            z-index: -1;
+            transition: var(--transition-normal);
+        }
+
+        .btn-ayurveda {
+            background: linear-gradient(135deg, var(--ayurveda-primary), var(--ayurveda-secondary));
+            color: white;
+        }
+
+        .btn-allopathic {
+            background: linear-gradient(135deg, var(--allopathic-primary), var(--allopathic-secondary));
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-ayurveda:hover {
+            box-shadow: 0 7px 20px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-allopathic:hover {
+            box-shadow: 0 7px 20px rgba(48, 63, 159, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .hero-illustration {
+            flex: 1;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .illustration-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .illustration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .ayurveda-illustration {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/2936/2936886.png');
+            opacity: 1;
+        }
+
+        .allopathic-illustration {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/4320/4320377.png');
+            opacity: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--neutral-text);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature-icon.ayurveda {
+            background-color: var(--ayurveda-accent);
+            color: var(--ayurveda-primary);
+        }
+
+        .feature-icon.allopathic {
+            background-color: var(--allopathic-accent);
+            color: var(--allopathic-primary);
+        }
+
+        .feature-icon.neutral {
+            background: linear-gradient(135deg, var(--ayurveda-accent), var(--allopathic-accent));
+            color: #333;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contact {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: #444;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-text">MediPortal</div>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#footer">Contact</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Choose Your Portal</h1>
+                <p class="hero-subtitle">Seamlessly switch between Ayurvedic and Allopathic services with our integrated healthcare platform. Experience the best of both worlds.</p>
+                <div class="hero-buttons">
+                    <a href="http://localhost:5174/" class="btn btn-ayurveda">
+                        <i class="fas fa-leaf"></i> Ayurvedic Portal
+                    </a>
+                    <a href="http://127.0.0.1:5001" class="btn btn-allopathic">
+                        <i class="fas fa-stethoscope"></i> Allopathic Portal
+                    </a>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="illustration-container">
+                    <div class="illustration ayurveda-illustration"></div>
+                    <div class="illustration allopathic-illustration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Our Platform</h2>
+        <div class="features-container">
+            <div class="feature-card" data-delay="0">
+                <div class="feature-icon ayurveda">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3 class="feature-title">Holistic Wellness</h3>
+                <p class="feature-description">Access traditional Ayurvedic treatments focused on balancing mind, body, and spirit for long-term health and wellness.</p>
+            </div>
+            <div class="feature-card" data-delay="200">
+                <div class="feature-icon allopathic">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="feature-title">Modern Medicine</h3>
+                <p class="feature-description">Benefit from evidence-based medical treatments and cutting-edge diagnostic tools for acute and chronic conditions.</p>
+            </div>
+            <div class="feature-card" data-delay="400">
+                <div class="feature-icon neutral">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3 class="feature-title">Integrated Care</h3>
+                <p class="feature-description">Experience the best of both worlds with our seamless integration of traditional and modern healthcare approaches.</p>
+            </div>
+            <div class="feature-card" data-delay="600">
+                <div class="feature-icon neutral">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="feature-title">Easy Access</h3>
+                <p class="feature-description">Switch between healthcare systems with a single click, making it easy to manage all your health needs in one place.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-logo">MediPortal</div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> contact@mediportal.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 MediPortal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Feature cards animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, parseInt(entry.target.dataset.delay) || 0);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            featureCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Illustration hover effect
+        const ayurvedaBtn = document.querySelector('.btn-ayurveda');
+        const allopathicBtn = document.querySelector('.btn-allopathic');
+        const ayurvedaIllustration = document.querySelector('.ayurveda-illustration');
+        const allopathicIllustration = document.querySelector('.allopathic-illustration');
+
+        ayurvedaBtn.addEventListener('mouseenter', () => {
+            ayurvedaIllustration.style.opacity = '1';
+            allopathicIllustration.style.opacity = '0';
+        });
+
+        allopathicBtn.addEventListener('mouseenter', () => {
+            ayurvedaIllustration.style.opacity = '0';
+            allopathicIllustration.style.opacity = '1';
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

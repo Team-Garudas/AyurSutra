@@ -1,0 +1,113 @@
+# React Native Android App Generation Prompt
+
+## Project Goal
+Create a React Native Android app that matches my existing React (Vite) web project in every possible way: structure, features, navigation, business logic, and design. The mobile app should be ready for further development and deployment, and should be easy to maintain in parallel with the web version.
+
+---
+
+## 1. Project Structure
+- Use a `src/` folder with the following subfolders:
+  - `components/` (UI and feature components, dashboards, forms, widgets, etc.)
+  - `pages/` (screens: Home, PatientCard, NotFound, dashboards, registration, etc.)
+  - `lib/` (data logic, Firebase integration, utilities, mock data, advanced data structures)
+  - `services/` (service layer for data and business logic)
+  - `hooks/` (custom React hooks)
+  - `ui/` (reusable UI primitives)
+- Main entry: `App.tsx` with all providers and navigation setup
+- Use TypeScript throughout
+- Mirror the web project’s file/folder structure as closely as possible
+
+---
+
+## 2. Navigation
+- Use **React Navigation** (Stack Navigator) for routing
+- Screens:
+  - Home (Index)
+  - PatientCard (with `patientId` param)
+  - NotFound (for unknown routes)
+  - All other screens present in the web app (dashboards, registration, etc.)
+- Navigation logic should match the web app’s React Router setup
+
+---
+
+## 3. Data & State Management
+- Use **TanStack Query (React Query)** for data fetching and caching
+- Set up a global QueryClientProvider in `App.tsx`
+- Use context/providers as needed for global state (auth, theme, etc.)
+
+---
+
+## 4. Firebase Integration
+- Use Firebase for authentication, database, and real-time updates
+- Use either the JS SDK or `react-native-firebase` (whichever is more robust for your setup)
+- All business/data logic (Map, Set, Queue data structures, etc.) should be reused or ported
+- Real-time listeners for appointments, notes, etc. should work as in the web app
+
+---
+
+## 5. UI & Design
+- Use a modern, clean, and accessible design
+- Use a mobile UI library (React Native Paper, NativeBase, or Tamagui)
+- For styling, use `tailwindcss-react-native` or the StyleSheet API
+- Recreate all major UI components from the web app (forms, cards, charts, dashboards, etc.)
+- Use icons and color schemes that match the web version
+- Responsive layouts for all screen sizes
+- All buttons, inputs, and interactive elements should be touch-friendly
+- Use Toast/Notification system suitable for React Native (e.g., `react-native-toast-message`)
+- Use tooltips or helper popups where possible (or suitable mobile alternatives)
+
+---
+
+## 6. Features & Functionality
+- All main features from the web app must be present:
+  - Patient management
+  - Appointments (with queue system)
+  - Doctor notes (real-time updates)
+  - Medical records
+  - Registration and login
+  - Dashboards for patients, doctors, hospitals, therapists
+  - Health metrics and charts
+  - Notification system
+  - ID card generation
+  - Payment gateway integration (if present)
+  - Any other feature in the web app
+- All business logic (including advanced data structures) should be implemented in the mobile app
+- Use TypeScript types/interfaces for all data models
+
+---
+
+## 7. Developer Experience
+- Project should be easy to run with `npx react-native run-android` (or Expo)
+- All dependencies listed in `package.json`
+- Include example environment/config files if needed
+- Clear README with setup and run instructions
+
+---
+
+## 8. Extra Details & Silly Things (Don’t Miss Anything!)
+- Use the same naming conventions as the web project
+- All folders/files should be present, even if some are placeholders
+- Add comments in code for clarity
+- Use mock data where real data isn’t available
+- Add placeholder images/icons where needed
+- If a feature is web-only, note it and suggest a mobile alternative
+- Make sure all screens/components are reachable via navigation
+- Add sample tests if possible
+- Include a sample `.env` file for Firebase/API keys
+- Add a sample splash screen and app icon
+- Use dark mode if the web app supports it
+- Add a sample onboarding screen if the web app has one
+- Make sure the app builds and runs on Android
+
+---
+
+## 9. Deliverables
+- Full React Native project directory, zipped or as a repo
+- All code, assets, and config files
+- README with setup, build, and run instructions
+- Notes on any differences or limitations vs. the web app
+
+---
+
+**Summary:**
+Generate a complete React Native Android project, with the same structure, screens, features, and business logic as my current web app. Don’t skip any detail, from design to silly little things. The goal is maximum feature and structure parity for easy maintenance and future development.

@@ -1,0 +1,27 @@
+// Firebase Configuration and Initialization
+// Note: Firebase Storage is NOT used to avoid paid plan costs
+// File uploads (like patient photos) will be stored locally
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
+// Firebase configuration - You'll need to replace these with your actual values
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase services (NO STORAGE - to avoid paid plan)
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+// export const storage = getStorage(app); // REMOVED - using local storage for files
+
+// Export the app
+export default app;

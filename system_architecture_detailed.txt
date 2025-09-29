@@ -1,0 +1,702 @@
+# HEALTHCARE SYSTEM - DETAILED SYSTEM ARCHITECTURE
+
+## TABLE OF CONTENTS
+1. System Overview
+2. Architecture Layers
+3. Component Architecture
+4. Data Flow Architecture
+5. Database Architecture
+6. Authentication & Security Architecture
+7. API Architecture
+8. Frontend Architecture
+9. Backend Architecture
+10. Deployment Architecture
+11. Technology Stack Details
+12. System Integration Points
+13. Performance Architecture
+14. Security Architecture
+15. Scalability Architecture
+
+---
+
+## 1. SYSTEM OVERVIEW
+
+### System Name: Panchakarma Healthcare Management System
+### System Type: Web-based Healthcare Management Platform
+### Architecture Pattern: Component-Based Single Page Application (SPA)
+
+### High-Level Description:
+The system is a comprehensive healthcare management platform built for Ayurvedic/Panchakarma treatment centers. It manages patients, doctors, therapists, hospital staff, appointments, medical records, prescriptions, and health tracking.
+
+### Key Stakeholders:
+- **Patients**: Book appointments, view medical records, track health metrics
+- **Doctors**: Manage patient records, appointments, prescriptions
+- **Therapists**: Track treatment progress, manage therapy sessions
+- **Hospital Staff**: Oversee operations, manage resources, handle billing
+
+---
+
+## 2. ARCHITECTURE LAYERS
+
+### 2.1 PRESENTATION LAYER (Frontend)
+```
+┌─────────────────────────────────────────────────┐
+│                PRESENTATION LAYER               │
+├─────────────────────────────────────────────────┤
+│ User Interface Components (React + TypeScript) │
+│ • Patient Dashboard                             │
+│ • Doctor Dashboard                              │
+│ • Therapist Dashboard                           │
+│ • Hospital Dashboard                            │
+│ • Authentication Forms                          │
+│ • Appointment Booking                           │
+│ • Medical Records Management                    │
+│ • Prescription Management                       │
+│ • Health Metrics Tracking                      │
+│ • Video Consultation                            │
+│ • Payment Gateway Integration                   │
+│ • Notification System                           │
+└─────────────────────────────────────────────────┘
+```
+
+### 2.2 APPLICATION LAYER (Business Logic)
+```
+┌─────────────────────────────────────────────────┐
+│               APPLICATION LAYER                 │
+├─────────────────────────────────────────────────┤
+│ Service Layer (TypeScript Services)             │
+│ • Authentication Service                        │
+│ • Patient Management Service                    │
+│ • Appointment Service                           │
+│ • Medical Records Service                       │
+│ • Prescription Service                          │
+│ • Health Metrics Service                        │
+│ • Notification Service                          │
+│ • Payment Service                               │
+│ • File Management Service                       │
+│ • Video Consultation Service                    │
+└─────────────────────────────────────────────────┘
+```
+
+### 2.3 DATA LAYER (Backend)
+```
+┌─────────────────────────────────────────────────┐
+│                  DATA LAYER                     │
+├─────────────────────────────────────────────────┤
+│ Database & Storage (Firebase)                   │
+│ • Firebase Realtime Database                    │
+│ • Firebase Authentication                       │
+│ • Firebase Cloud Storage                        │
+│ • Local Storage (Browser)                       │
+│ • Session Storage                               │
+└─────────────────────────────────────────────────┘
+```
+
+---
+
+## 3. COMPONENT ARCHITECTURE
+
+### 3.1 COMPONENT HIERARCHY
+```
+App (Root Component)
+├── Authentication Layer
+│   ├── LoginForm
+│   ├── PatientRegistration
+│   └── StaffRegistration
+├── Dashboard Layer
+│   ├── PatientDashboard
+│   ├── DoctorDashboard
+│   ├── TherapistDashboard
+│   └── HospitalDashboard
+├── Feature Components
+│   ├── AppointmentBooking
+│   ├── AIAppointmentBooking
+│   ├── VideoConsultation
+│   ├── MedicalRecordsManagement
+│   ├── PrescriptionManagement
+│   ├── HealthMetricsChart
+│   ├── PaymentGateway
+│   ├── RazorpayPaymentGateway
+│   ├── NotificationSystem
+│   ├── EmergencyNotification
+│   ├── ChatbotWidget
+│   └── IDCard
+├── UI Components (shadcn/ui)
+│   ├── Button, Card, Dialog
+│   ├── Input, Select, Checkbox
+│   ├── Alert, Badge, Calendar
+│   ├── Chart, Progress, Avatar
+│   └── Navigation, Sidebar, Menu
+└── Pages
+    ├── Index (Home)
+    ├── PatientCard
+    └── NotFound
+```
+
+### 3.2 COMPONENT COMMUNICATION PATTERNS
+
+#### Parent-Child Communication (Props)
+```typescript
+// Parent passes data down to child
+<PatientDashboard 
+  patient={currentPatient}
+  appointments={userAppointments}
+  onAppointmentBook={handleBooking}
+/>
+```
+
+#### State Management (React Hooks)
+```typescript
+// Local state management
+const [appointments, setAppointments] = useState<Appointment[]>([]);
+const [isLoading, setIsLoading] = useState(false);
+const [errors, setErrors] = useState<string>('');
+```
+
+#### Event Handling (Callbacks)
+```typescript
+// Child sends data back to parent via callbacks
+const handleAppointmentCancel = (appointmentId: string) => {
+  // Update state and notify parent
+  onAppointmentUpdate(appointmentId, 'cancelled');
+};
+```
+
+---
+
+## 4. DATA FLOW ARCHITECTURE
+
+### 4.1 UNIDIRECTIONAL DATA FLOW
+```
+User Action → Component → Service Layer → Database → 
+Response → Service Layer → Component → UI Update
+```
+
+### 4.2 DETAILED DATA FLOW EXAMPLES
+
+#### Appointment Booking Flow:
+```
+1. User clicks "Book Appointment" → PatientDashboard
+2. Opens AIAppointmentBooking component
+3. User selects hospital → fetchHospitals() service call
+4. User selects doctor → fetchDoctors(hospitalId) service call
+5. User picks time slot → checkAvailability() service call
+6. User confirms → bookAppointment() service call
+7. Firebase stores appointment data
+8. Real-time listener updates appointments list
+9. Notification sent to doctor
+10. UI refreshes with new appointment
+```
+
+#### Health Data Update Flow:
+```
+1. Doctor enters health metrics → DoctorDashboard
+2. Validates input data → HealthMetricsService
+3. Stores in Firebase → healthMetricsService.update()
+4. Real-time listener triggers → Patient dashboard
+5. Chart component re-renders → HealthMetricsChart
+6. Patient sees updated health trends
+```
+
+---
+
+## 5. DATABASE ARCHITECTURE
+
+### 5.1 FIREBASE REALTIME DATABASE STRUCTURE
+```
+healthcare_system/
+├── users/
+│   ├── patients/
+│   │   └── {patientId}/
+│   │       ├── profile: { id, name, dob, bloodGroup, phone, email }
+│   │       ├── medicalHistory: { allergies, conditions, medications }
+│   │       ├── appointments: { [appointmentId]: appointment_data }
+│   │       ├── healthMetrics: { [date]: { bp, weight, heartRate } }
+│   │       ├── prescriptions: { [prescriptionId]: prescription_data }
+│   │       └── notifications: { [notificationId]: notification_data }
+│   ├── doctors/
+│   │   └── {doctorId}/
+│   │       ├── profile: { id, name, specialization, experience }
+│   │       ├── schedule: { availability, appointments }
+│   │       ├── patients: { [patientId]: patient_reference }
+│   │       └── consultations: { [consultationId]: consultation_data }
+│   ├── therapists/
+│   │   └── {therapistId}/
+│   │       ├── profile: { id, name, specializations }
+│   │       ├── patients: { [patientId]: therapy_progress }
+│   │       └── sessions: { [sessionId]: session_data }
+│   └── hospital_staff/
+│       └── {staffId}/
+│           ├── profile: { id, name, role, department }
+│           └── activities: { [activityId]: activity_data }
+├── hospitals/
+│   └── {hospitalId}/
+│       ├── info: { name, address, contact, facilities }
+│       ├── doctors: { [doctorId]: doctor_reference }
+│       ├── departments: { [deptId]: department_info }
+│       └── appointments: { [appointmentId]: appointment_data }
+├── appointments/
+│   └── {appointmentId}/
+│       ├── patientId: string
+│       ├── doctorId: string
+│       ├── hospitalId: string
+│       ├── dateTime: timestamp
+│       ├── status: "scheduled" | "completed" | "cancelled"
+│       ├── symptoms: string[]
+│       ├── diagnosis: string
+│       ├── prescription: prescription_reference
+│       └── notes: string
+└── system/
+    ├── configurations: { payment_gateway, notification_settings }
+    ├── analytics: { user_stats, appointment_stats }
+    └── logs: { [logId]: system_activity }
+```
+
+### 5.2 DATA RELATIONSHIPS
+```
+Patient (1) ←→ (many) Appointments ←→ (1) Doctor
+Patient (1) ←→ (many) Prescriptions ←→ (1) Doctor
+Patient (1) ←→ (many) HealthMetrics
+Patient (1) ←→ (many) TherapySessions ←→ (1) Therapist
+Doctor (many) ←→ (1) Hospital
+Appointment (1) ←→ (1) Payment
+Appointment (1) ←→ (many) Notifications
+```
+
+---
+
+## 6. AUTHENTICATION & SECURITY ARCHITECTURE
+
+### 6.1 AUTHENTICATION FLOW
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   User Login    │───▶│  Firebase Auth  │───▶│  Role-Based     │
+│   (Any Role)    │    │   Verification  │    │   Dashboard     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  Credential     │    │   JWT Token     │    │   Session       │
+│  Validation     │    │   Generation    │    │   Management    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+### 6.2 ROLE-BASED ACCESS CONTROL (RBAC)
+```typescript
+interface UserRole {
+  PATIENT: {
+    permissions: ['view_own_data', 'book_appointments', 'view_prescriptions']
+    dashboard: 'PatientDashboard'
+    restricted: ['edit_medical_records', 'access_admin_panel']
+  }
+  DOCTOR: {
+    permissions: ['view_patient_data', 'edit_medical_records', 'prescribe_medication']
+    dashboard: 'DoctorDashboard'
+    restricted: ['access_billing', 'system_administration']
+  }
+  THERAPIST: {
+    permissions: ['view_assigned_patients', 'update_therapy_progress']
+    dashboard: 'TherapistDashboard'
+    restricted: ['prescribe_medication', 'access_billing']
+  }
+  HOSPITAL_STAFF: {
+    permissions: ['view_all_data', 'manage_schedules', 'access_billing']
+    dashboard: 'HospitalDashboard'
+    restricted: ['delete_medical_records']
+  }
+}
+```
+
+### 6.3 SECURITY MEASURES
+- **Input Validation**: All forms validate data before submission
+- **SQL Injection Prevention**: Firebase handles query security
+- **XSS Protection**: React automatically escapes user input
+- **CSRF Protection**: Firebase tokens prevent cross-site attacks
+- **Data Encryption**: HTTPS for all communications
+- **Session Management**: Automatic token expiration and refresh
+
+---
+
+## 7. API ARCHITECTURE
+
+### 7.1 SERVICE LAYER APIS
+```typescript
+// Authentication API
+interface AuthService {
+  login(credentials: LoginCredentials): Promise<AuthResult>
+  logout(): Promise<void>
+  register(userData: UserRegistration): Promise<User>
+  resetPassword(email: string): Promise<void>
+}
+
+// Patient Management API
+interface PatientService {
+  getPatient(id: string): Promise<Patient>
+  updatePatient(id: string, data: PatientUpdate): Promise<Patient>
+  getPatientHistory(id: string): Promise<MedicalHistory[]>
+  addHealthMetrics(id: string, metrics: HealthMetrics): Promise<void>
+}
+
+// Appointment API
+interface AppointmentService {
+  bookAppointment(data: AppointmentBooking): Promise<Appointment>
+  getAppointments(userId: string): Promise<Appointment[]>
+  cancelAppointment(id: string): Promise<void>
+  rescheduleAppointment(id: string, newDate: Date): Promise<Appointment>
+  getAvailableSlots(doctorId: string, date: Date): Promise<TimeSlot[]>
+}
+
+// Prescription API
+interface PrescriptionService {
+  createPrescription(data: PrescriptionData): Promise<Prescription>
+  getPrescriptions(patientId: string): Promise<Prescription[]>
+  updatePrescription(id: string, data: PrescriptionUpdate): Promise<Prescription>
+}
+```
+
+### 7.2 EXTERNAL API INTEGRATIONS
+- **Razorpay Payment Gateway**: For processing payments
+- **Firebase Cloud Functions**: For server-side operations
+- **Email Service**: For sending notifications
+- **SMS Service**: For appointment reminders
+- **Video Call Service**: For telemedicine consultations
+
+---
+
+## 8. FRONTEND ARCHITECTURE
+
+### 8.1 REACT COMPONENT ARCHITECTURE
+```
+┌─────────────────────────────────────────────────┐
+│                 REACT APP                       │
+├─────────────────────────────────────────────────┤
+│ Routing Layer (React Router)                    │
+│ ├── Public Routes (Login, Register)             │
+│ ├── Protected Routes (Dashboards)               │
+│ └── Error Routes (404, Error Boundary)          │
+├─────────────────────────────────────────────────┤
+│ State Management Layer                          │
+│ ├── Local State (useState, useReducer)          │
+│ ├── Global State (Context API)                  │
+│ └── Server State (React Query/SWR)              │
+├─────────────────────────────────────────────────┤
+│ UI Component Layer                              │
+│ ├── Layout Components                           │
+│ ├── Feature Components                          │
+│ ├── Shared Components (shadcn/ui)               │
+│ └── Custom Hooks                                │
+└─────────────────────────────────────────────────┘
+```
+
+### 8.2 STATE MANAGEMENT STRATEGY
+```typescript
+// Local Component State
+const [appointments, setAppointments] = useState<Appointment[]>([]);
+
+// Global App State (Context)
+const AuthContext = createContext<AuthState | null>(null);
+
+// Server State Management
+const { data: patient, isLoading, error } = usePatientQuery(patientId);
+
+// Form State Management
+const { register, handleSubmit, formState } = useForm<FormData>();
+```
+
+### 8.3 STYLING ARCHITECTURE
+- **Tailwind CSS**: Utility-first CSS framework
+- **shadcn/ui**: Pre-built component library
+- **CSS-in-JS**: Styled components for complex styling
+- **Responsive Design**: Mobile-first approach
+- **Theme System**: Consistent color and spacing
+
+---
+
+## 9. BACKEND ARCHITECTURE
+
+### 9.1 FIREBASE BACKEND SERVICES
+```
+Firebase Backend
+├── Authentication
+│   ├── Email/Password Auth
+│   ├── Multi-factor Authentication
+│   └── Role-based Access Control
+├── Realtime Database
+│   ├── Real-time Data Sync
+│   ├── Offline Support
+│   └── Security Rules
+├── Cloud Storage
+│   ├── File Upload/Download
+│   ├── Image Processing
+│   └── CDN Distribution
+├── Cloud Functions
+│   ├── API Endpoints
+│   ├── Background Tasks
+│   └── Scheduled Functions
+└── Analytics
+    ├── User Analytics
+    ├── Performance Monitoring
+    └── Crash Reporting
+```
+
+### 9.2 DATA SYNCHRONIZATION
+- **Real-time Listeners**: Automatic UI updates when data changes
+- **Offline Support**: App works without internet connection
+- **Conflict Resolution**: Handles concurrent data modifications
+- **Batch Operations**: Efficient bulk data operations
+
+---
+
+## 10. DEPLOYMENT ARCHITECTURE
+
+### 10.1 DEVELOPMENT ENVIRONMENT
+```
+Local Development
+├── Vite Development Server (Port 5714)
+├── Hot Module Replacement (HMR)
+├── TypeScript Compilation
+├── ESLint & Prettier
+└── Local Firebase Emulators
+```
+
+### 10.2 PRODUCTION DEPLOYMENT
+```
+Production Environment
+├── Static Site Hosting (Vercel/Netlify)
+├── CDN Distribution
+├── SSL/TLS Encryption
+├── Environment Variables
+├── Performance Monitoring
+└── Error Tracking
+```
+
+### 10.3 CI/CD PIPELINE
+```
+Code Commit → Build Process → Testing → Deployment
+     ↓              ↓          ↓         ↓
+Git Repository → TypeScript → Unit Tests → Production
+                Compilation   Integration
+                                Tests
+```
+
+---
+
+## 11. TECHNOLOGY STACK DETAILS
+
+### 11.1 FRONTEND TECHNOLOGIES
+```
+Core Framework:
+├── React 18.x (UI Library)
+├── TypeScript (Type Safety)
+├── Vite (Build Tool)
+└── React Router (Navigation)
+
+Styling:
+├── Tailwind CSS (Utility Framework)
+├── shadcn/ui (Component Library)
+├── Lucide Icons (Icon Library)
+└── CSS Modules (Scoped Styles)
+
+State Management:
+├── React Hooks (Local State)
+├── Context API (Global State)
+└── React Query (Server State)
+
+Forms & Validation:
+├── React Hook Form (Form Management)
+├── Zod (Schema Validation)
+└── Custom Validators
+```
+
+### 11.2 BACKEND TECHNOLOGIES
+```
+Backend as a Service:
+├── Firebase Authentication
+├── Firebase Realtime Database
+├── Firebase Cloud Storage
+└── Firebase Cloud Functions
+
+Third-party Services:
+├── Razorpay (Payment Processing)
+├── EmailJS (Email Service)
+├── Video Call API (Telemedicine)
+└── SMS Gateway (Notifications)
+```
+
+### 11.3 DEVELOPMENT TOOLS
+```
+Code Quality:
+├── ESLint (Code Linting)
+├── Prettier (Code Formatting)
+├── TypeScript Compiler
+└── Husky (Git Hooks)
+
+Testing:
+├── Vitest (Unit Testing)
+├── React Testing Library
+├── Cypress (E2E Testing)
+└── Jest (Test Runner)
+
+Development:
+├── VS Code (IDE)
+├── Git (Version Control)
+├── npm/pnpm (Package Manager)
+└── Chrome DevTools
+```
+
+---
+
+## 12. SYSTEM INTEGRATION POINTS
+
+### 12.1 INTERNAL INTEGRATIONS
+```
+Component Integrations:
+├── Dashboard ↔ Appointment Booking
+├── Medical Records ↔ Prescription Management
+├── Health Metrics ↔ Charts/Visualization
+├── Authentication ↔ All Protected Components
+└── Notification System ↔ All User Actions
+
+Service Integrations:
+├── Firebase Auth ↔ User Management
+├── Firebase Database ↔ Data Services
+├── Local Storage ↔ Session Management
+└── File Upload ↔ Cloud Storage
+```
+
+### 12.2 EXTERNAL INTEGRATIONS
+```
+Payment Gateway:
+├── Razorpay API Integration
+├── Payment Status Webhooks
+├── Transaction Verification
+└── Refund Processing
+
+Communication Services:
+├── Email Service (Appointment confirmations)
+├── SMS Service (Reminders)
+├── Video Call API (Consultations)
+└── Push Notifications (Mobile)
+
+Healthcare APIs:
+├── Medical Database APIs
+├── Drug Information APIs
+├── Insurance Verification APIs
+└── Lab Result APIs
+```
+
+---
+
+## 13. PERFORMANCE ARCHITECTURE
+
+### 13.1 FRONTEND PERFORMANCE
+```
+Optimization Strategies:
+├── Code Splitting (Dynamic Imports)
+├── Lazy Loading (React.lazy)
+├── Image Optimization (WebP, Compression)
+├── Bundle Size Optimization
+├── Memory Management
+└── Render Optimization
+
+Caching Strategies:
+├── Browser Caching (Static Assets)
+├── Service Worker (Offline Caching)
+├── React Query Cache (API Responses)
+└── Local Storage (User Preferences)
+```
+
+### 13.2 BACKEND PERFORMANCE
+```
+Database Optimization:
+├── Firebase Indexing
+├── Query Optimization
+├── Connection Pooling
+├── Data Pagination
+└── Real-time Listener Management
+
+Storage Optimization:
+├── File Compression
+├── CDN Distribution
+├── Image Resizing
+└── Lazy Loading
+```
+
+---
+
+## 14. SECURITY ARCHITECTURE
+
+### 14.1 DATA SECURITY
+```
+Encryption:
+├── HTTPS/TLS (Data in Transit)
+├── Firebase Encryption (Data at Rest)
+├── Password Hashing (bcrypt)
+└── Token Encryption (JWT)
+
+Access Control:
+├── Role-based Permissions
+├── Firebase Security Rules
+├── API Rate Limiting
+└── Session Management
+```
+
+### 14.2 PRIVACY COMPLIANCE
+```
+Data Protection:
+├── HIPAA Compliance (Healthcare Data)
+├── GDPR Compliance (EU Users)
+├── Data Anonymization
+├── Audit Trails
+└── Right to Deletion
+```
+
+---
+
+## 15. SCALABILITY ARCHITECTURE
+
+### 15.1 HORIZONTAL SCALING
+```
+Frontend Scaling:
+├── CDN Distribution
+├── Load Balancing
+├── Multiple Deploy Regions
+└── Progressive Web App (PWA)
+
+Backend Scaling:
+├── Firebase Auto-scaling
+├── Cloud Function Scaling
+├── Database Sharding
+└── Microservices Architecture
+```
+
+### 15.2 VERTICAL SCALING
+```
+Performance Improvements:
+├── Code Optimization
+├── Database Query Optimization
+├── Caching Improvements
+├── Resource Monitoring
+└── Performance Analytics
+```
+
+---
+
+## CONCLUSION
+
+This healthcare system architecture provides:
+
+1. **Modularity**: Component-based design for easy maintenance
+2. **Scalability**: Can handle growing user base and data
+3. **Security**: Multiple layers of protection for sensitive medical data
+4. **Performance**: Optimized for fast loading and smooth user experience
+5. **Maintainability**: Clean code structure with TypeScript and modern tools
+6. **Flexibility**: Easy to add new features and integrate with external services
+
+The architecture follows modern web development best practices and provides a solid foundation for a professional healthcare management system.
+
+---
+
+**Document Version**: 1.0
+**Last Updated**: September 17, 2025
+**Author**: Healthcare System Development Team
