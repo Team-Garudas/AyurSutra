@@ -85,3 +85,82 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.firebaserc
+
+# Deployment platforms
+.vercel
+.netlify
+
+# Package managers
+
+
+# Testing
+.nyc_output/
+*.lcov
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Parcel cache
+.parcel-cache
+
+# Vite specific
+.vite/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Local development
+.history/
+
+# Error logs
+error.log
+debug.log
+
+# Certificates
+*.pem
+*.key
+*.crt
+
+# Backup files
+*.bak
+
+# Generated files
+*.min.js
+*.min.css
+
+# MacOS specific
+.AppleDouble
+.LSOverride
+
+# Windows specific
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux specific
+*~
+
+# Optional stylelint cache
+.stylelintcache
+
+# Serverless directories
+.serverless/
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
