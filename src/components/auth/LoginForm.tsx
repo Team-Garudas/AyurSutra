@@ -58,6 +58,60 @@ export default function LoginForm({ onLogin, onBackToHome }: LoginFormProps) {
     setError('');
   };
 
+  const fillDemoCredentials = async (role: string, username: string, password: string) => {
+    setActiveTab(role);
+    setError('');
+    setIsLoading(true);
+
+    try {
+      console.log(`🔐 Auto-login with demo credentials for role: ${role}`);
+      console.log(`📝 Demo credentials:`, { username, password });
+      
+      let user: AuthUser | null = null;
+      let userData: Patient | Doctor | Therapist | Hospital | null = null;
+
+      switch (role) {
+        case 'patient':
+          userData = await authenticatePatient(username, password);
+          if (userData) {
+            user = { role: 'patient', ...userData };
+          }
+          break;
+        case 'doctor':
+          userData = await authenticateDoctor(username, password);
+          if (userData) {
+            user = { role: 'doctor', ...userData };
+          }
+          break;
+        case 'therapist':
+          userData = await authenticateTherapist(username, password);
+          if (userData) {
+            user = { role: 'therapist', ...userData };
+          }
+          break;
+        case 'hospital':
+          userData = await authenticateHospital(username, password);
+          if (userData) {
+            user = { role: 'hospital', ...userData };
+          }
+          break;
+      }
+
+      if (user && userData) {
+        console.log(`✅ Demo login successful for ${role}:`, userData);
+        onLogin(user, userData);
+      } else {
+        console.log(`❌ Demo login failed for ${role}`);
+        setError('Demo login failed. Please check credentials.');
+      }
+    } catch (error: any) {
+      console.error('Demo login error:', error);
+      setError(error.message || 'Demo login failed');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleLogin = async (role: string) => {
     setIsLoading(true);
     setError('');
@@ -206,7 +260,94 @@ export default function LoginForm({ onLogin, onBackToHome }: LoginFormProps) {
       
       {/* Main Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen p-6">
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-lg mx-auto">
+          {/* Login Form Section */}
+          <div className="flex-1 max-w-lg mx-auto">
+            {/* Header Section */}
+            <div className="text-center mb-8">
+              {/* Logo Section */}
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center shadow-2xl">
+                  <Flower2 className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-3xl font-bold text-white tracking-tight">
+                    AyurSutra
+                  </h1>
+                  <p className="text-emerald-200 text-sm font-medium">Healthcare Platform</p>
+                </div>
+              </div>
+              
+              {/* Welcome Text */}
+              <div className="space-y-2">
+                <h2 className="text-2xl font-semibold text-white">
+                  Welcome Back
+                </h2>
+                <p className="text-emerald-200/80 text-lg">
+                  Sign in to access your healthcare dashboard
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile Demo Credentials */}
+            <Card className="bg-white border border-gray-300 shadow-xl mb-6">
+              <CardContent className="p-4">
+                <div className="text-center mb-4">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <h3 className="text-sm font-semibold text-black">Demo Credentials</h3>
+                    <Sparkles className="w-4 h-4 text-amber-500" />
+                  </div>
+                  <p className="text-gray-600 text-xs">
+                    Tap any credential to test the platform
+                  </p>
+                </div>
+                
+                <div className="space-y-3">
+                  {/* Patient Demo - Mobile */}
+                  <div 
+                    className="bg-green-50 border border-green-200 rounded-lg p-3 cursor-pointer hover:bg-green-100 transition-all duration-200"
+                    onClick={() => fillDemoCredentials('patient', 'PKM375637IJF', '123456')}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Users className="w-3 h-3 text-green-600" />
+                        <span className="text-green-600 font-medium text-xs">Patient</span>
+                      </div>
+                      <div className="text-xs text-black font-medium">PKM375637IJF / 123456</div>
+                    </div>
+                  </div>
+
+                  {/* Hospital Demo - Mobile */}
+                  <div 
+                    className="bg-amber-50 border border-amber-200 rounded-lg p-3 cursor-pointer hover:bg-amber-100 transition-all duration-200"
+                    onClick={() => fillDemoCredentials('hospital', 'pccc', '123456')}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Building2 className="w-3 h-3 text-amber-600" />
+                        <span className="text-amber-600 font-medium text-xs">Hospital</span>
+                      </div>
+                      <div className="text-xs text-black font-medium">pccc / 123456</div>
+                    </div>
+                  </div>
+
+                  {/* Doctor Demo - Mobile */}
+                  <div 
+                    className="bg-blue-50 border border-blue-200 rounded-lg p-3 cursor-pointer hover:bg-blue-100 transition-all duration-200"
+                    onClick={() => fillDemoCredentials('doctor', 'doctor_omkar_8231', 'Omkar@231')}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Stethoscope className="w-3 h-3 text-blue-600" />
+                        <span className="text-blue-600 font-medium text-xs">Doctor</span>
+                      </div>
+                      <div className="text-xs text-black font-medium">doctor_omkar_8231 / Omkar@231</div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           {/* Header Section */}
           <div className="text-center mb-8">
             {/* Logo Section */}
@@ -222,19 +363,19 @@ export default function LoginForm({ onLogin, onBackToHome }: LoginFormProps) {
               </div>
             </div>
             
-            {/* Welcome Text */}
-            <div className="space-y-2">
-              <h2 className="text-2xl font-semibold text-white">
-                Welcome Back
-              </h2>
-              <p className="text-emerald-200/80 text-lg">
-                Sign in to access your healthcare dashboard
-              </p>
-            </div>
+          {/* Welcome Text */}
+          <div className="space-y-2">
+            <h2 className="text-2xl font-semibold text-white">
+              Welcome Back
+            </h2>
+            <p className="text-emerald-200/80 text-lg">
+              Sign in to access your healthcare dashboard
+            </p>
           </div>
+        </div>
 
-          {/* Login Card */}
-          <Card className="backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
+        {/* Login Card */}
+        <Card className="backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
             <CardContent className="p-8">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
                 {/* Enhanced Tab List */}
@@ -655,7 +796,8 @@ export default function LoginForm({ onLogin, onBackToHome }: LoginFormProps) {
             </div>
           </div>
         </div>
-      </div>
+          </div>
+        </div>
       </div>
     </div>
   );
